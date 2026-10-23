@@ -4,6 +4,8 @@ import com.movieticket.model.*;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+// # Class: DataRepository
+// # Purpose: Handles datarepository logic in this module.
 public class DataRepository {
     public final Map<String, User> users = new ConcurrentHashMap<>();
     public final Map<String, Movie> movies = new ConcurrentHashMap<>();

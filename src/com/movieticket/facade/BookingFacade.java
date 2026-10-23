@@ -9,9 +9,13 @@ import com.movieticket.service.BookingService;
 import java.util.List;
 import java.util.Optional;
 
+// # Class: BookingFacade
+// # Purpose: Handles bookingfacade logic in this module.
 public class BookingFacade {
     private final BookingService bookingService;
 
+// # Method: BookingFacade
+// # Purpose: Executes the BookingFacade workflow for this class.
     public BookingFacade(BookingService bookingService) {
         this.bookingService = bookingService;
     }

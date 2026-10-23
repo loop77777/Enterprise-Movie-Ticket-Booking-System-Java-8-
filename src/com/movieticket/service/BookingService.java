@@ -12,18 +12,24 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
+// # Class: BookingService
+// # Purpose: Handles bookingservice logic in this module.
 public class BookingService {
     private final DataRepository repository;
     private final NotificationService emailNotifier;
     private final NotificationService smsNotifier;
     private static final int LOCK_TIMEOUT_MINUTES = 5;
 
+// # Method: BookingService
+// # Purpose: Executes the BookingService workflow for this class.
     public BookingService(DataRepository repository) {
         this.repository = repository;
         this.emailNotifier = new EmailNotificationService();
         this.smsNotifier = new SMSNotificationService();
     }
 
+// # Method: reserveSeats
+// # Purpose: Executes the reserveSeats workflow for this class.
     public Optional<Booking> reserveSeats(String userId, String showId, List<String> seatIds) {
         User user = repository.users.get(userId);
         Show show = repository.shows.get(showId);
@@ -76,6 +82,8 @@ public class BookingService {
         }
     }
 
+// # Method: confirmBooking
+// # Purpose: Executes the confirmBooking workflow for this class.
     public Optional<Ticket> confirmBooking(String bookingId, PaymentMethod paymentMethod) {
         Booking booking = repository.bookings.get(bookingId);
         if (booking == null || booking.getStatus() != BookingStatus.PENDING) {
@@ -121,6 +129,8 @@ public class BookingService {
         }
     }
 
+// # Method: cancelBooking
+// # Purpose: Executes the cancelBooking workflow for this class.
     public boolean cancelBooking(String bookingId) {
         Booking booking = repository.bookings.get(bookingId);
         if (booking == null || booking.getStatus() != BookingStatus.CONFIRMED) {

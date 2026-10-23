@@ -2,7 +2,11 @@ package com.movieticket.strategy;
 
 import com.movieticket.enums.PaymentMethod;
 
+// # Class: PaymentStrategyFactory
+// # Purpose: Handles paymentstrategyfactory logic in this module.
 public class PaymentStrategyFactory {
+// # Method: getStrategy
+// # Purpose: Executes the getStrategy workflow for this class.
     public static PaymentStrategy getStrategy(PaymentMethod method) {
         switch (method) {
             case UPI: return new UPIPaymentStrategy();

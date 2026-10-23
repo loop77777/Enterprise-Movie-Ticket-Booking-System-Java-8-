@@ -296,7 +296,7 @@ Detailed Real-Time Case Study Problem Statement
 
 com.movieticket
 ├── Main.java
-├── enums/
+├── com.movieticket.enums/
 │    ├── UserRole.java
 │    ├── Genre.java
 │    ├── SeatType.java
